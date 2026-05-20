@@ -1,614 +1,266 @@
-# AWS Platform Engineering
-Enterprise-grade AWS platform engineering project implementing a secure multi-account landing zone using AWS Control Tower, AWS Organizations, Terraform, GitHub Actions, and GitOps principles for automated governance, security, identity, networking, and scalable cloud foundation deployment.
+# <div align="center">Hi 👋, I'm Gyan Prakash Rai</div>
 
-# AWS Multi-Account Landing Zone Platform on AWS using Control Tower, Terraform & GitOps
+<div align="center">
 
-Enterprise-grade AWS Landing Zone / Cloud Foundation Platform built using:
+# 🚀 AWS Platform Engineer | DevOps Engineer | Cloud Infrastructure Specialist
 
-- AWS Control Tower
-- AWS Organizations
-- Terraform
+</div>
+
+---
+
+# 🌌 Banner Image
+
+<p align="center">
+  <img src="images/banner.png" alt="Banner" width="100%">
+</p>
+
+---
+
+# ⚡ Animated Typing Banner
+
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=1000&lines=AWS+Platform+Engineer;Kubernetes+%7C+Terraform+%7C+DevOps;Cloud+Infrastructure+Automation;CI%2FCD+%7C+GitOps+%7C+Observability;Building+Scalable+Cloud+Platforms" alt="Typing SVG" />
+</p>
+
+---
+
+# 👨‍💻 About Me
+
+I specialize in designing and building scalable cloud-native platforms using AWS, Kubernetes, Terraform, CI/CD, and Platform Engineering best practices.
+
+I have hands-on experience with:
+
+- Amazon EKS
+- Kubernetes Platform Engineering
+- Terraform Infrastructure as Code
+- Karpenter Autoscaling
+- GitOps & Helm
+- CI/CD Automation
+- Docker & Containerization
+- Monitoring & Observability
+- DevSecOps Best Practices
+
+I help startups and enterprises build secure, scalable, and production-ready cloud infrastructure platforms.
+
+---
+
+# 🏆 Certifications
+
+<p align="left">
+
+<img src="https://img.shields.io/badge/AWS-Solutions_Architect_Associate-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" />
+
+<img src="https://img.shields.io/badge/AWS-Developer_Associate-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" />
+
+<img src="https://img.shields.io/badge/AWS-SysOps_Administrator-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" />
+
+<img src="https://img.shields.io/badge/Azure-Fundamentals-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
+
+</p>
+
+---
+
+# 💻 Tech Stack
+
+## ☁️ Cloud Platforms
+
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+
+---
+
+## ⚙️ Infrastructure & DevOps
+
+![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Helm](https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+---
+
+## 🚀 CI/CD & Automation
+
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
+
+---
+
+# 🚀 Featured Projects
+
+# 🔹 Microservices EKS Terraform CI/CD Platform
+
+Production-grade AWS Kubernetes platform implementing:
+
+- Terraform IaC
+- Amazon EKS
+- Karpenter
 - GitHub Actions
-- GitOps principles
-- IAM Identity Center
-- Security Guardrails
-- Enterprise Governance Automation
-
----
-
-# Overview
-
-This project demonstrates the implementation of a production-grade AWS Cloud Foundation / Landing Zone architecture designed for enterprise-scale cloud adoption.
-
-The platform provides:
-
-- Multi-account AWS governance
-- Centralized identity and access management
-- Security baselines
-- Logging and auditing
-- Organizational governance
-- CI/CD-driven infrastructure automation
-- Terraform-based account provisioning
+- Helm Deployments
 - GitOps workflows
-- Enterprise-ready cloud foundation architecture
+- Production Networking
+- Auto Scaling Infrastructure
 
-The architecture follows AWS best practices for:
+## 🔗 Repository
 
-- Security
-- Governance
-- Scalability
-- Operational excellence
-- Infrastructure automation
+https://github.com/gprai/microservices-eks-terraform-cicd
 
 ---
 
-# Key Objectives
+## 🏗️ Architecture Diagram
 
-This platform was designed to solve the following enterprise challenges:
-
-- Secure separation of environments using isolated AWS accounts
-- Centralized governance across all AWS accounts
-- Standardized account provisioning
-- Automated infrastructure lifecycle management
-- Secure CI/CD pipelines using GitHub OIDC federation
-- Scalable landing zone architecture
-- Security and compliance enforcement
-- Cloud cost visibility and governance
-- Infrastructure consistency through Infrastructure as Code
+<p align="center">
+  <img src="images/architecture.png" width="100%">
+</p>
 
 ---
 
-# Architecture Overview
+## 📸 Project Screenshots
 
-The platform follows a multi-account AWS organizational model.
+### Kubernetes Cluster
 
-```text
-AWS Organization
-│
-├── Management Account
-│
-├── Security OU
-│   ├── Audit Account
-│   └── Log Archive Account
-│
-├── Infrastructure OU
-│   └── Shared Services Account
-│
-├── Workloads OU
-│   ├── Dev Account
-│   ├── Stage Account
-│   └── Prod Account
-│
-└── Sandbox OU
-    └── Playground Account
-```
----
-![alt text](image.png)
----
----
+<p align="center">
+  <img src="images/eks-dashboard.png" width="100%">
+</p>
 
-# Why Multi-Account Architecture?
+### CI/CD Pipeline
 
-Instead of hosting everything inside a single AWS account, enterprises isolate workloads into multiple AWS accounts for:
-
-## Security Isolation
-
-Compromise in one environment does not directly impact another.
-
-```text
-Dev Account Compromise
-        ≠
-Production Compromise
-```
+<p align="center">
+  <img src="images/cicd-pipeline.png" width="100%">
+</p>
 
 ---
 
-## IAM Separation
+# 🔹 AWS FinOps Automation Platform
 
-Fine-grained access control between:
+Cloud cost optimization and governance automation platform.
 
-- Developers
-- Platform Engineers
-- Security Teams
-- Operations Teams
+## Features
 
----
-
-## Billing Separation
-
-Each AWS account maintains independent cost visibility and budgeting.
+- AWS Cost Visibility
+- Governance Automation
+- Resource Optimization
+- Infrastructure Compliance
+- Reporting Automation
 
 ---
 
-## Quota Isolation
+# 🛠️ Services Offered
 
-AWS quotas are account-scoped.
+## ☁️ Cloud Infrastructure
 
-Separate accounts prevent:
+- AWS Architecture Design
+- Kubernetes Platform Setup
+- EKS Cluster Deployment
+- Multi-Environment Infrastructure
 
-- noisy-neighbor problems
-- quota exhaustion
-- resource contention
+## ⚙️ DevOps Automation
 
----
-
-## Compliance & Governance
-
-Different environments require:
-
-- different security controls
-- different SCPs
-- different monitoring baselines
-
----
-
-# Platform Components
-
-## Governance Layer
-
-- AWS Organizations
-- Organizational Units (OUs)
-- Service Control Policies (SCPs)
-- Tag Policies
-- Centralized Billing
-
----
-
-## Identity Layer
-
-- AWS IAM Identity Center
-- Permission Sets
-- Role-based Access Control (RBAC)
-- Cross-account access management
-- GitHub OIDC federation
-
----
-
-## Security Layer
-
-- AWS CloudTrail
-- AWS Config
-- AWS KMS
-- Amazon CloudWatch
-- AWS Security Hub
-- Amazon GuardDuty
-- Centralized log archival
-
----
-
-## Networking Layer
-
-- Hub-and-spoke networking architecture
-- Shared services networking
-- Centralized DNS
-- Shared ingress/egress design
-- Transit Gateway-ready architecture
-
----
-
-## Automation Layer
-
-- Terraform
-- GitHub Actions
-- GitOps workflows
-- Remote state management
-- Automated account provisioning
-- CI/CD-driven infrastructure deployment
-
----
-
-# Repository Structure
-
-```text
-aws-platform-engineering/
-├── bootstrap/
-├── organizations/
-├── control-tower/
-├── identity/
-├── security/
-├── networking/
-├── workloads/
-├── modules/
-└── .github/workflows/
-```
-
----
-
-# Bootstrap Layer
-
-Bootstrap is the foundational setup required before Terraform can manage infrastructure.
-
-The bootstrap phase provisions:
-
-- Terraform backend S3 bucket
-- DynamoDB state locking table
-- IAM execution roles
-- GitHub OIDC federation
-- KMS encryption keys
-
----
-
-# Terraform Remote State
-
-Terraform state is stored remotely using:
-
-- Amazon S3
-- DynamoDB state locking
-
-This enables:
-
-- team collaboration
-- safe concurrent deployments
-- CI/CD integration
-- infrastructure drift detection
-
-Example backend configuration:
-
-```hcl
-terraform {
-  backend "s3" {
-    bucket         = "company-terraform-state"
-    key            = "organizations/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-locks"
-  }
-}
-```
-
----
-
-# CI/CD Architecture
-
-Infrastructure deployments are fully automated using GitHub Actions.
-
-Deployment flow:
-
-```text
-Git Push
-    ↓
-Terraform Validate
-    ↓
-Terraform Plan
-    ↓
-Security Scan
-    ↓
-Approval
-    ↓
-Terraform Apply
-```
-
----
-
-# GitHub OIDC Federation
-
-This project uses GitHub OIDC federation instead of static AWS credentials.
-
-Benefits:
-
-- no long-term AWS keys
-- temporary credentials
-- improved security posture
-- enterprise-grade CI/CD authentication
-
-Authentication flow:
-
-```text
-GitHub Actions
-      ↓
-OIDC Token
-      ↓
-AWS IAM Role
-      ↓
-Temporary Credentials
-```
-
----
-
-# Terraform Automation
-
-The platform uses Terraform to provision:
-
-- AWS Organizations
-- Organizational Units
-- AWS Accounts
-- SCPs
-- IAM Roles
-- Logging infrastructure
-- Security baselines
-- Networking components
-
-Example AWS account creation:
-
-```hcl
-resource "aws_organizations_account" "dev" {
-  name      = "DevAccount"
-  email     = "aws-dev@company.com"
-  parent_id = aws_organizations_organizational_unit.workloads.id
-}
-```
-
----
-
-# Service Control Policies (SCPs)
-
-SCPs enforce organization-wide governance policies.
-
-Examples:
-
-- Restrict root usage
-- Deny public S3 buckets
-- Restrict AWS regions
-- Enforce encryption
-- Prevent disabling CloudTrail
-
-Example SCP:
-
-```hcl
-resource "aws_organizations_policy" "deny_root" {
-  name = "DenyRootUsage"
-
-  content = jsonencode({
-    Version = "2012-10-17"
-    Statement = [{
-      Effect = "Deny"
-      Action = "*"
-      Resource = "*"
-      Condition = {
-        StringLike = {
-          "aws:PrincipalArn" = "*root*"
-        }
-      }
-    }]
-  })
-
-  type = "SERVICE_CONTROL_POLICY"
-}
-```
-
----
-
-# AWS Control Tower Integration
-
-AWS Control Tower provides:
-
-- Landing zone governance
-- Account Factory
-- Guardrails
-- Logging baselines
-- Account lifecycle governance
-
-Architecture relationship:
-
-```text
-AWS Organizations = Account Engine
-Control Tower     = Governance Layer
-Terraform         = Automation Engine
-AFT               = GitOps Account Provisioning
-```
-
----
-
-# Account Factory for Terraform (AFT)
-
-This platform is designed to support:
-
-## AWS Control Tower Account Factory for Terraform (AFT)
-
-AFT enables:
-
-- GitOps account vending
-- Automated account provisioning
-- Baseline customization
-- Enterprise account lifecycle automation
-
-Provisioning flow:
-
-```text
-GitHub Actions
-       ↓
-Terraform
-       ↓
-AFT
-       ↓
-Control Tower
-       ↓
-AWS Organizations
-       ↓
-AWS Account Provisioned
-```
-
----
-
-# Example AFT Account Request
-
-```hcl
-module "dev_account" {
-  source = "./modules/aft-account-request"
-
-  control_tower_parameters = {
-    AccountEmail = "aws-dev@company.com"
-    AccountName  = "DevAccount"
-    ManagedOrganizationalUnit = "Workloads"
-    SSOUserEmail = "admin@company.com"
-    SSOUserFirstName = "Cloud"
-    SSOUserLastName  = "Admin"
-  }
-
-  account_tags = {
-    environment = "dev"
-    owner       = "platform-team"
-  }
-}
-```
-
----
-
-# Security Architecture
-
-Security controls implemented:
-
-- AWS CloudTrail organization trails
-- Centralized log archival
-- AWS Config compliance monitoring
-- AWS Security Hub
-- Amazon GuardDuty
-- KMS encryption
-- IAM least privilege
-- SCP governance
-- Cross-account role management
-
----
-
-# Observability & Monitoring
-
-Monitoring stack:
-
-- Amazon CloudWatch
-- Centralized logging
-- Organization-wide CloudTrail
-- Security findings aggregation
-- Compliance visibility
-
----
-
-# Networking Architecture
-
-Recommended enterprise networking model:
-
-- Hub-and-spoke networking
-- Shared services VPC
-- Centralized DNS
-- Shared ingress/egress
-- Transit Gateway-ready design
-
----
-
-# Recommended Learning / Deployment Progression
-
-## Phase 1 — Organizations & Governance
-
-- AWS Organizations
-- OUs
-- SCPs
-- Account provisioning
-
----
-
-## Phase 2 — Identity & Access
-
-- IAM Identity Center
-- Permission Sets
-- Cross-account access
-
----
-
-## Phase 3 — Security Baselines
-
-- CloudTrail
-- Config
-- Security Hub
-- GuardDuty
-
----
-
-## Phase 4 — Networking Foundation
-
-- Shared networking
-- DNS
-- Transit Gateway architecture
-
----
-
-## Phase 5 — Control Tower & AFT
-
-- Landing zone governance
-- Account Factory
-- GitOps account vending
-
----
-
-# Cost Optimization Notes
-
-This platform can be deployed in:
-
-- learning/lab mode
-- production enterprise mode
-
-Recommended low-cost learning setup:
-
-- single AWS region
-- minimal accounts
-- no NAT Gateway
-- limited logging retention
-- minimal security services
-
-Approximate learning cost:
-
-```text
-~$10–20/month
-```
-
----
-
-# Key Engineering Concepts Demonstrated
-
-This project demonstrates expertise in:
-
-- AWS Platform Engineering
-- Landing Zone Architecture
-- Enterprise Governance
-- Multi-account AWS Architecture
-- Infrastructure as Code
-- GitOps Workflows
+- CI/CD Pipeline Setup
 - Terraform Automation
-- AWS Security Governance
-- CI/CD Engineering
-- Cloud Foundation Engineering
+- GitOps Implementation
+- Docker Containerization
+
+## 📈 Platform Engineering
+
+- Internal Developer Platforms
+- Infrastructure Standardization
+- Cluster Autoscaling
+- Observability & Monitoring
+
+## 🔒 DevSecOps
+
+- IAM Security Best Practices
+- Secure Infrastructure Design
+- Policy Automation
+- Compliance Enablement
 
 ---
 
-# Technologies Used
+# ✍️ Blogs & Articles
 
-| Category | Technologies |
-|---|---|
-| Cloud | AWS |
-| Governance | AWS Organizations, Control Tower |
-| IaC | Terraform |
-| CI/CD | GitHub Actions |
-| Identity | IAM Identity Center |
-| Security | CloudTrail, Config, Security Hub |
-| Monitoring | CloudWatch |
-| State Management | S3 + DynamoDB |
-| Authentication | GitHub OIDC |
-| Automation | AFT |
+- Coming Soon 🚀
+
+Future topics:
+
+- Kubernetes Best Practices
+- Terraform Modules
+- AWS Cost Optimization
+- GitOps Workflows
+- Platform Engineering
+- Karpenter Deep Dive
 
 ---
 
-# Future Enhancements
+# 📊 GitHub Stats
 
-Planned enhancements:
+<p align="center">
 
-- Full AFT integration
-- Automated account vending workflows
-- EKS platform integration
-- Shared services platform
-- Security Lake integration
-- Centralized SIEM integration
-- Policy-as-Code (OPA/Sentinel)
-- FinOps automation
-- Advanced networking automation
+<img src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true" />
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact" />
+
+</p>
 
 ---
 
-# Final Notes
+# 📈 GitHub Contribution Graph
 
-This repository demonstrates how modern enterprises build:
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=YOUR_USERNAME" />
+</p>
 
-- secure AWS foundations
-- scalable governance platforms
-- automated landing zones
-- GitOps-driven cloud platforms
+---
 
-using Infrastructure as Code and enterprise automation principles.
+# 👀 Visitor Counter
 
-The architecture reflects real-world cloud platform engineering practices used in large-scale AWS environments.
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=YOUR_USERNAME&label=Profile+Views&color=blue&style=for-the-badge" />
+</p>
+
+---
+
+# 💬 Client Testimonials
+
+Coming Soon 🚀
+
+You can later add:
+
+- Upwork client reviews
+- LinkedIn recommendations
+- Screenshots of client feedback
+- Project success stories
+
+---
+
+# 📄 Resume
+
+📥 Download Resume:
+
+[GyanPrakashRai_Resume](https://1drv.ms/f/c/768093078700af7a/IgDCyz3vFgDEQ72Q0ExLIeLWAbIhc1mkgmFdLsg6cDKBXhw?e=4TjZaS)
+
+---
+
+# 🤝 Connect With Me
+
+## LinkedIn
+
+https://www.linkedin.com/in/gyan-prakash-rai-24782413/
+
+## GitHub
+
+https://github.com/gprai
+
+## Email
+
+gprai86@gmail.com
+
+---
+
+# ⚡ Current Focus
+
+- Platform Engineering
+- Kubernetes Automation
+- Cloud Architecture
+- Infrastructure as Code
+- DevOps Consulting
+- Freelance Cloud Projects
