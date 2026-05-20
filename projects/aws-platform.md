@@ -83,7 +83,7 @@ AWS Organization
     └── Playground Account
 ```
 ---
-![alt text](image.png)
+![Architecture](images/architecture-diagram.png)
 ---
 ---
 
