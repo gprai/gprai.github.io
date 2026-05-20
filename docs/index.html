@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0f2433; /* lighter than before */
+    --surface:   #122933;
+    --border:    #23424f;
+    --aws:       #FF9900;
+    --azure:     #3a9bff;
+    --accent:    #2dd4f5; /* softer cyan */
+    --text:      #e6f2f8;
+    --muted:     #98b9c6;
+    --font-head: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: linear-gradient(180deg,var(--bg), #0b2028 120%);
+    color: var(--text);
+    font-family: var(--font-head);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+
+  /* ── Noise overlay ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ── Grid lines ── */
+  body::after {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(1rem, 5vw, 4rem);
+    height: 56px;
+    background: rgba(9,9,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── Layout ── */
+  main {
+    position: relative; z-index: 1;
+    padding-top: 56px;
+  }
+
+  .section {
+    padding: clamp(4rem, 10vw, 8rem) clamp(1rem, 8vw, 8rem);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── Section label ── */
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: .75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1; max-width: 80px;
+    height: 1px;
+    background: var(--accent);
+    opacity: .4;
+  }
+
+  h1, h2, h3 { font-family: var(--font-head); }
+
+  /* ── (rest of original styles unchanged) */
+  @media (max-width: 680px) {
+    .project-card { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    .project-card { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+
+  
+</head>
+<body>
+  
+<nav>
+  <a class="nav-logo" href="index.html">GPR<span style="color:var(--muted)">.</span></a>
+  <ul class="nav-links"><li><a href="index.html" style="color:var(--accent)">Home</a></li>
+<li><a href="stack.html" >Stack</a></li>
+<li><a href="projects.html" >Projects</a></li>
+<li><a href="services.html" >Services</a></li>
+<li><a href="contact.html" >Contact</a></li>
+</ul>
+</nav>
+
+  <main>
+<section class="hero">
+  <p class="hero-eyebrow">Cloud · DevOps · Platform Engineering</p>
+  <h1>Gyan<br/><span class="highlight">Prakash Rai</span></h1>
+  <p class="hero-sub">
+    <span id="typing" style="color:var(--accent)"></span><span style="color:var(--accent);animation:blink 1s step-end infinite">_</span>
+    <br/><br/>
+    Designing and automating scalable, secure, production-grade infrastructure
+    on AWS and Azure — with Kubernetes, Terraform, CI/CD, and GitOps at the core.
+  </p>
+  <div class="hero-cta">
+    <a href="projects.html" class="btn btn-primary">View Projects</a>
+    <a href="services.html" class="btn btn-outline">Services</a>
+    <a href="contact.html" class="btn btn-outline">Contact</a>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section class="section">
+  <p class="section-label">Certifications</p>
+  <div class="certs">
+<div class="cert-pill" style="border-color:#FF990044;color:#FF9900">
+  <span>☁</span>
+  <span>AWS Solutions Architect – Associate</span>
+</div>
+<div class="cert-pill" style="border-color:#FF990044;color:#FF9900">
+  <span>☁</span>
+  <span>AWS Developer – Associate</span>
+</div>
+<div class="cert-pill" style="border-color:#FF990044;color:#FF9900">
+  <span>☁</span>
+  <span>AWS SysOps Administrator – Associate</span>
+</div>
+<div class="cert-pill" style="border-color:#0078D444;color:#0078D4">
+  <span>⬡</span>
+  <span>Azure Fundamentals</span>
+</div>
+<div class="cert-pill" style="border-color:#0078D444;color:#0078D4">
+  <span>⬡</span>
+  <span>Azure Administrator Associate</span>
+</div>
+<div class="cert-pill" style="border-color:#0078D444;color:#0078D4">
+  <span>⬡</span>
+  <span>Azure DevOps Engineer Expert</span>
+</div>
+<div class="cert-pill" style="border-color:#0078D444;color:#0078D4">
+  <span>⬡</span>
+  <span>Azure AI Engineer Associate</span>
+</div></div>
+</section>
+
+<hr class="divider"/>
+
+<section class="section">
+  <p class="section-label">About</p>
+  <p style="max-width:680px;color:var(--muted);line-height:2;font-size:.88rem">
+    Cloud &amp; DevOps Engineer specialising in designing and automating scalable, secure,
+    production-grade infrastructure on AWS and Azure. I help teams build reliable cloud
+    platforms using Kubernetes (EKS/AKS), Terraform, CI/CD pipelines, Docker, and
+    GitOps-driven delivery workflows.
+    <br/><br/>
+    I also design <strong style="color:var(--text)">AI-ready cloud architectures</strong>
+    for modern workloads, including Generative AI and MLOps systems — integrating
+    OpenAI, Azure OpenAI, AWS Bedrock, and building infrastructure for LLM applications
+    and RAG pipelines.
+  </p>
+</section>
+<style>@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}</style>
+
+<script>
+const words = ["AWS &amp; Azure Platform Engineer", "Kubernetes \u00b7 EKS \u00b7 AKS", "Terraform \u00b7 GitOps \u00b7 CI/CD", "DevSecOps \u00b7 Observability", "AI-Ready Cloud Architecture"];
+let wi = 0, ci = 0, deleting = false;
+const el = document.getElementById('typing');
+function type() {
+  const w = words[wi];
+  el.innerHTML = deleting ? w.slice(0, ci--) : w.slice(0, ci++);
+  if (!deleting && ci > w.length) { deleting = true; setTimeout(type, 1400); return; }
+  if (deleting && ci < 0) { deleting = false; wi = (wi + 1) % words.length; }
+  setTimeout(type, deleting ? 40 : 70);
+}
+type();
+</script>
+
+</main>
+  
+<footer>
+  <span>© 2025 Gyan Prakash Rai</span>
+  <span>
+    <a href="https://github.com/gprai" style="color:var(--muted);text-decoration:none;margin-right:1.5rem;">GitHub</a>
+    <a href="https://www.linkedin.com/in/gyan-prakash-rai-24782413/" style="color:var(--muted);text-decoration:none;">LinkedIn</a>
+  </span>
+</footer>
+
+</body>
+</html>

@@ -6,6 +6,7 @@ Output: docs/ folder ready for GitHub Pages
 
 import os
 import json
+import shutil
 from pathlib import Path
 
 # ── Output directory ──────────────────────────────────────────────────────────
@@ -18,6 +19,10 @@ SITE = {
     "name": "Gyan Prakash Rai",
     "tagline": "AWS & Azure Platform Engineer · DevOps · Cloud Infrastructure",
     "email": "gprai86@gmail.com",
+  # Optional: add your Calendly link (https://calendly.com/yourname) to enable instant scheduling
+  "calendly": "",
+  # Optional: form action for an external form endpoint (Formspree, Getform). Leave empty to use mailto fallback.
+  "form_action": "",
     "linkedin": "https://www.linkedin.com/in/gyan-prakash-rai-24782413/",
     "github": "https://github.com/gprai",
     "resume": "https://1drv.ms/f/c/768093078700af7a/IgDCyz3vFgDEQ72Q0ExLIeLWAbIhc1mkgmFdLsg6cDKBXhw?e=4TjZaS",
@@ -120,32 +125,33 @@ SERVICES = [
 def css() -> str:
     return """
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=DM+Mono:wght@300;400;500&display=swap');
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:        #09090f;
-    --surface:   #111120;
-    --border:    #1e1e35;
+    --bg:        #0f2433; /* lighter than before */
+    --surface:   #122933;
+    --border:    #23424f;
     --aws:       #FF9900;
     --azure:     #3a9bff;
-    --accent:    #00e5ff;
-    --text:      #e8e8f0;
-    --muted:     #6b6b88;
-    --font-head: 'Syne', sans-serif;
+    --accent:    #2dd4f5; /* softer cyan */
+    --text:      #e6f2f8;
+    --muted:     #98b9c6;
+    --font-head: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'DM Mono', monospace;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--bg);
+    background: linear-gradient(180deg,var(--bg), #0b2028 120%);
     color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 14px;
+    font-family: var(--font-head);
+    font-size: 15px;
     line-height: 1.7;
     overflow-x: hidden;
+    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
   }
 
   /* ── Noise overlay ── */
@@ -247,7 +253,7 @@ def css() -> str:
   }
 
   .hero h1 {
-    font-size: clamp(2.8rem, 7vw, 6rem);
+    font-size: clamp(2.2rem, 6vw, 4rem);
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -0.03em;
@@ -287,8 +293,8 @@ def css() -> str:
   }
 
   .btn-primary {
-    background: var(--accent);
-    color: #000;
+    background: linear-gradient(90deg,var(--accent),#7ce7ff);
+    color: #002027;
     font-weight: 500;
   }
   .btn-primary:hover { background: #fff; }
@@ -324,7 +330,7 @@ def css() -> str:
   }
 
   .stack-card {
-    background: var(--surface);
+    background: linear-gradient(180deg,var(--surface), #0f2a36);
     padding: 1.8rem;
     transition: background .2s;
   }
@@ -427,7 +433,7 @@ def css() -> str:
   }
 
   .service-card {
-    background: var(--surface);
+    background: linear-gradient(180deg,var(--surface), #0f2a36);
     padding: 2rem;
     transition: background .2s;
   }
@@ -464,7 +470,7 @@ def css() -> str:
   }
 
   .contact-card {
-    background: var(--surface);
+    background: linear-gradient(180deg,var(--surface), #0f2a36);
     padding: 2rem;
     text-decoration: none;
     color: inherit;
@@ -604,6 +610,71 @@ type();
   <span>{c['label']}</span>
 </div>"""
 
+    # Booking modal + script (injected as a separate string to avoid f-string brace escaping)
+    booking_js = '''
+<!-- Booking modal and script -->
+<div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;align-items:center;justify-content:center"> 
+  <div style="background:var(--surface);max-width:720px;width:94%;padding:1.2rem;border-radius:6px;border:1px solid var(--border)">
+    <h3 style="margin:0 0 .5rem">Book a Demo</h3>
+    <p style="color:var(--muted);margin:0 0 1rem;font-size:.92rem">Pick a preferred time and tell me briefly about your requirements.</p>
+    <form id="bookingForm">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
+        <input name="name" placeholder="Your name" required style="padding:.6rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+        <input name="email" type="email" placeholder="Email" required style="padding:.6rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+      </div>
+      <div style="margin-top:.6rem;display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
+        <input name="date" type="date" style="padding:.5rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+        <input name="time" type="time" style="padding:.5rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+      </div>
+      <textarea name="note" placeholder="Brief note (optional)" style="width:100%;margin-top:.6rem;padding:.6rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)"></textarea>
+      <div style="display:flex;gap:.5rem;margin-top:.8rem;justify-content:flex-end">
+        <button type="button" id="bookingCancel" class="btn btn-outline">Cancel</button>
+        <button type="submit" class="btn btn-primary">Request Booking</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+document.getElementById('bookBtn').addEventListener('click', function(){
+  document.getElementById('bookingModal').style.display = 'flex';
+});
+document.getElementById('bookingCancel').addEventListener('click', function(){
+  document.getElementById('bookingModal').style.display = 'none';
+});
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const f = e.target;
+  const data = new FormData(f);
+  const name = encodeURIComponent(data.get('name')||'');
+  const email = encodeURIComponent(data.get('email')||'');
+  // If Calendly is configured, open Calendly with prefilled name/email in a new tab.
+  const calendly = __CALENDLY__;
+  if (calendly) {
+    const url = calendly + (calendly.includes('?') ? '&' : '?') + 'name=' + name + '&email=' + email;
+    window.open(url, '_blank');
+    document.getElementById('bookingModal').style.display = 'none';
+    return;
+  }
+  // If a form action is configured, POST the form data there.
+  const formAction = __FORMACTION__;
+  if (formAction) {
+    fetch(formAction, { method: 'POST', body: data }).then(()=>{
+      alert('Booking request sent — thank you!');
+      document.getElementById('bookingModal').style.display = 'none';
+    }).catch(()=>{ alert('Unable to send booking request.'); });
+    return;
+  }
+  // Fallback: open mail client with details to owner's email
+  const subject = encodeURIComponent('Booking request from ' + (data.get('name')||''));
+  const body = encodeURIComponent('Name: ' + (data.get('name')||'') + '\nEmail: ' + (data.get('email')||'') + '\nPreferred: ' + (data.get('date')||'') + ' ' + (data.get('time')||'') + '\n\nNote:\n' + (data.get('note')||''));
+  const owner = __OWNER__;
+  window.location.href = 'mailto:' + encodeURIComponent(owner) + '?subject=' + subject + '&body=' + body;
+});
+</script>
+'''
+    booking_js = booking_js.replace('__CALENDLY__', json.dumps(SITE.get('calendly',''))).replace('__FORMACTION__', json.dumps(SITE.get('form_action',''))).replace('__OWNER__', json.dumps(SITE.get('email','')))
+
     body = f"""
 <section class="hero">
   <p class="hero-eyebrow">Cloud · DevOps · Platform Engineering</p>
@@ -618,6 +689,7 @@ type();
     <a href="projects.html" class="btn btn-primary">View Projects</a>
     <a href="services.html" class="btn btn-outline">Services</a>
     <a href="contact.html" class="btn btn-outline">Contact</a>
+    <button id="bookBtn" class="btn btn-primary" style="background:transparent;border:1px solid rgba(255,255,255,.06);">Book a Demo</button>
   </div>
 </section>
 
@@ -646,6 +718,7 @@ type();
 </section>
 <style>@keyframes blink{{0%,100%{{opacity:1}}50%{{opacity:0}}}}</style>
 {typing_js}
+{booking_js}
 """
     return page("Home", body, active="Home")
 
@@ -780,6 +853,56 @@ def build_project_doc(project_id: str) -> str:
         for h in p["highlights"]
     )
     tags = "".join(f'<span class="tag">{t}</span>' for t in p["stack"])
+
+    # If this is the AWS Platform project, try to include the project's README and architecture image
+    extra_html = ""
+    if project_id == 'aws-platform':
+      readme_path = Path('..') / 'aws-platform-engineering' / 'README.md'
+      img_src = Path('..') / 'aws-platform-engineering' / 'image.png'
+      try:
+        if readme_path.exists():
+          raw = readme_path.read_text(encoding='utf-8')
+          # Minimal markdown -> HTML conversion (headers and lists)
+          lines = raw.splitlines()
+          out_lines = []
+          in_list = False
+          for L in lines:
+            if L.startswith('### '):
+              out_lines.append(f"<h3>{L[4:].strip()}</h3>")
+              continue
+            if L.startswith('## '):
+              out_lines.append(f"<h2>{L[3:].strip()}</h2>")
+              continue
+            if L.startswith('# '):
+              out_lines.append(f"<h1>{L[2:].strip()}</h1>")
+              continue
+            if L.startswith('- '):
+              if not in_list:
+                out_lines.append('<ul>')
+                in_list = True
+              out_lines.append(f"<li>{L[2:].strip()}</li>")
+              continue
+            else:
+              if in_list:
+                out_lines.append('</ul>')
+                in_list = False
+            # horizontal rules
+            if L.strip().startswith('---'):
+              out_lines.append('<hr/>')
+              continue
+            # code block fence -> wrap in pre (very simple)
+            out_lines.append(f"<p style='color:var(--muted);line-height:1.7'>{L}</p>")
+          if in_list:
+            out_lines.append('</ul>')
+          extra_html = '<div style="margin-top:2rem">' + '\n'.join(out_lines) + '</div>'
+        if img_src.exists():
+          # copy image into docs/projects
+          dst = OUT / 'projects' / 'aws-platform.png'
+          dst.parent.mkdir(parents=True, exist_ok=True)
+          shutil.copyfile(img_src, dst)
+          extra_html = f"<div style=\"margin-top:1.2rem;max-width:100%;\"><img src=\"projects/aws-platform.png\" alt=\"architecture\" style=\"width:100%;border:1px solid var(--border);border-radius:6px;\"/></div>" + extra_html
+      except Exception:
+        extra_html = ''
 
     body = f"""
 <div class="page-hero">
