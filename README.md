@@ -120,7 +120,7 @@ https://github.com/gprai/microservices-eks-terraform-cicd
 
 📄 Detailed Documentation:
 
-[View Project Documentation](microservices-eks-terraform.md)
+[View Project Documentation](/gprai.github.io/projects/microservices-eks-terraform)
 
 ### 2. AWS Platform Engineering (Under Development)
 
@@ -132,11 +132,11 @@ https://github.com/gprai/aws-platform-engineering
 
 ### Architecture Diagram
 
-![Architecture](/gprai.github.io/images/architecture-diagram.png)
+![Architecture](images/architecture-diagram.png)
 
 📄 Detailed Documentation:
 
-[View Project Documentation](/gprai.github.io/projects/aws-platform.md)
+[View Project Documentation](/gprai.github.io/projects/aws-platform)
 
 ---
 ## Services Offered
