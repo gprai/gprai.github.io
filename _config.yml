@@ -2,10 +2,8 @@ title: Gyan Prakash Rai
 description: >
   Cloud Infrastructure • Kubernetes • Terraform • DevOps Automation • Platform Engineering
 
-remote_theme: pages-themes/architect@v0.2.0
+remote_theme: jekyll-theme-cayman
 
-plugins:
-  - jekyll-remote-theme
 
 show_downloads: false
 

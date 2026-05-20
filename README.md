@@ -1,262 +1,181 @@
-# <div align="center">Hi 👋, I'm Gyan Prakash Rai</div>
+# Hi 👋 I'm Gyan Prakash Rai
 
-<div align="center">
-
-# 🚀 AWS Platform Engineer | DevOps Engineer | Cloud Infrastructure Specialist
-
-</div>
-
----
-
-# 🌌 Banner Image
+### AWS Platform Engineer • DevOps Engineer • Cloud Infrastructure Specialist
 
 <p align="center">
-  <img src="images/banner.png" alt="Banner" width="100%">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=20&pause=1000&color=36BCF7&center=true&vCenter=true&width=700&lines=AWS+Platform+Engineer;Kubernetes+%7C+Terraform+%7C+DevOps;Cloud+Infrastructure+Automation;CI%2FCD+%7C+GitOps+%7C+Observability" alt="Typing SVG" />
 </p>
 
 ---
 
-# ⚡ Animated Typing Banner
+## About Me
 
-<p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=1000&lines=AWS+Platform+Engineer;Kubernetes+%7C+Terraform+%7C+DevOps;Cloud+Infrastructure+Automation;CI%2FCD+%7C+GitOps+%7C+Observability;Building+Scalable+Cloud+Platforms" alt="Typing SVG" />
-</p>
+Cloud & DevOps Engineer specializing in designing and automating scalable, secure, production-grade infrastructure on AWS and Azure. I help teams build reliable cloud platforms using Kubernetes (EKS/AKS), Terraform, CI/CD pipelines, Docker, and GitOps-driven delivery workflows.
 
----
+I also design AI-ready cloud architectures for modern workloads, including Generative AI and MLOps systems. This includes integrating OpenAI, Azure OpenAI, and AWS Bedrock, as well as building infrastructure for LLM applications, RAG pipelines, and automated ML workflows.
 
-# 👨‍💻 About Me
+My focus is on building systems that are not only deployed correctly, but are maintainable, observable, and production-safe—reducing operational overhead and improving release reliability.
 
-I specialize in designing and building scalable cloud-native platforms using AWS, Kubernetes, Terraform, CI/CD, and Platform Engineering best practices.
-
-I have hands-on experience with:
+### Core Expertise
 
 - Amazon EKS
-- Kubernetes Platform Engineering
+- Azure AKS
+- Kubernetes
 - Terraform Infrastructure as Code
-- Karpenter Autoscaling
 - GitOps & Helm
 - CI/CD Automation
+- Karpenter Autoscaling
 - Docker & Containerization
 - Monitoring & Observability
 - DevSecOps Best Practices
 
-I help startups and enterprises build secure, scalable, and production-ready cloud infrastructure platforms.
+---
+
+## Certifications
+
+![Azure DevOps Engineer Expert](https://learn.microsoft.com/api/credentials/share/en-us/GyanPrakashRai-6746/5E97D2076BDE8EF4?sharingId=AD0CF2080D17517A)
+![Azure Administrator Associate](https://learn.microsoft.com/api/credentials/share/en-us/GyanPrakashRai-6746/D52C2FF3BC6CD305?sharingId=AD0CF2080D17517A)
+![Azure AI Engineer Associate](https://learn.microsoft.com/api/credentials/share/en-us/GyanPrakashRai-6746/D668DBACC2A7462?sharingId=AD0CF2080D17517A)
 
 ---
 
-# 🏆 Certifications
+## Tech Stack
 
-<p align="left">
+### Cloud Platforms
 
-<img src="https://img.shields.io/badge/AWS-Solutions_Architect_Associate-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" />
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
+![Azure](https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
 
-<img src="https://img.shields.io/badge/AWS-Developer_Associate-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" />
+### Infrastructure & DevOps
 
-<img src="https://img.shields.io/badge/AWS-SysOps_Administrator-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" />
+![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=flat-square&logo=terraform&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
+![Helm](https://img.shields.io/badge/Helm-0F1689?style=flat-square&logo=helm&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 
-<img src="https://img.shields.io/badge/Azure-Fundamentals-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
+### CI/CD & Automation
 
-</p>
-
----
-
-# 💻 Tech Stack
-
-## ☁️ Cloud Platforms
-
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
+![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white)
 
 ---
 
-## ⚙️ Infrastructure & DevOps
+## Featured Projects
 
-![Terraform](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
-![Helm](https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=helm&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+### Microservices EKS Terraform CI/CD Platform
 
----
+Production-grade Kubernetes platform built using:
 
-## 🚀 CI/CD & Automation
-
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=for-the-badge&logo=jenkins&logoColor=white)
-
----
-
-# 🚀 Featured Projects
-
-# 🔹 Microservices EKS Terraform CI/CD Platform
-
-Production-grade AWS Kubernetes platform implementing:
-
-- Terraform IaC
+- Terraform
 - Amazon EKS
 - Karpenter
 - GitHub Actions
-- Helm Deployments
-- GitOps workflows
-- Production Networking
-- Auto Scaling Infrastructure
+- Helm
+- GitOps Workflows
 
-## 🔗 Repository
+🔗 Repository:
 
 https://github.com/gprai/microservices-eks-terraform-cicd
 
----
+📄 Detailed Documentation:
 
-## 🏗️ Architecture Diagram
+[View Project Documentation](projects/eks-platform.md)
 
-<p align="center">
-  <img src="images/architecture.png" width="100%">
-</p>
+### Architecture Diagram
 
----
-
-## 📸 Project Screenshots
-
-### Kubernetes Cluster
-
-<p align="center">
-  <img src="images/eks-dashboard.png" width="100%">
-</p>
-
-### CI/CD Pipeline
-
-<p align="center">
-  <img src="images/cicd-pipeline.png" width="100%">
-</p>
+![Architecture](images/architecture.png)
 
 ---
 
-# 🔹 AWS FinOps Automation Platform
+### AWS FinOps Automation Platform
 
-Cloud cost optimization and governance automation platform.
+Cloud cost optimization and governance automation platform focused on:
 
-## Features
-
-- AWS Cost Visibility
-- Governance Automation
-- Resource Optimization
-- Infrastructure Compliance
-- Reporting Automation
+- Cost visibility
+- Governance automation
+- Resource optimization
+- Compliance reporting
 
 ---
 
-# 🛠️ Services Offered
+## Services Offered
 
-## ☁️ Cloud Infrastructure
+### Cloud Infrastructure
 
 - AWS Architecture Design
-- Kubernetes Platform Setup
-- EKS Cluster Deployment
-- Multi-Environment Infrastructure
+- Kubernetes Platform Engineering
+- EKS Deployment
+- Terraform Automation
 
-## ⚙️ DevOps Automation
+### DevOps Automation
 
 - CI/CD Pipeline Setup
-- Terraform Automation
-- GitOps Implementation
-- Docker Containerization
+- GitHub Actions
+- GitOps Workflows
+- Docker & Helm
 
-## 📈 Platform Engineering
+### Platform Engineering
 
 - Internal Developer Platforms
-- Infrastructure Standardization
 - Cluster Autoscaling
 - Observability & Monitoring
-
-## 🔒 DevSecOps
-
-- IAM Security Best Practices
-- Secure Infrastructure Design
-- Policy Automation
-- Compliance Enablement
+- Infrastructure Standardization
 
 ---
 
-# ✍️ Blogs & Articles
+## GitHub Stats
 
-- Coming Soon 🚀
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=gprai&show_icons=true)
 
-Future topics:
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=gprai&layout=compact)
+
+---
+
+## Visitor Counter
+
+![Visitor Count](https://komarev.com/ghpvc/?username=gprai&style=flat-square)
+
+---
+
+## Blogs & Articles
+
+Coming Soon 🚀
+
+Planned topics:
 
 - Kubernetes Best Practices
 - Terraform Modules
 - AWS Cost Optimization
 - GitOps Workflows
 - Platform Engineering
-- Karpenter Deep Dive
 
 ---
 
-# 📊 GitHub Stats
+## Resume
 
-<p align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true" />
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact" />
-
-</p>
-
----
-
-# 📈 GitHub Contribution Graph
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=YOUR_USERNAME" />
-</p>
-
----
-
-# 👀 Visitor Counter
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=YOUR_USERNAME&label=Profile+Views&color=blue&style=for-the-badge" />
-</p>
-
----
-
-# 💬 Client Testimonials
-
-Coming Soon 🚀
-
-You can later add:
-
-- Upwork client reviews
-- LinkedIn recommendations
-- Screenshots of client feedback
-- Project success stories
-
----
-
-# 📄 Resume
-
-📥 Download Resume:
+📄 Resume:
 
 [GyanPrakashRai_Resume](https://1drv.ms/f/c/768093078700af7a/IgDCyz3vFgDEQ72Q0ExLIeLWAbIhc1mkgmFdLsg6cDKBXhw?e=4TjZaS)
 
 ---
 
-# 🤝 Connect With Me
+## Connect With Me
 
-## LinkedIn
+### LinkedIn
 
 https://www.linkedin.com/in/gyan-prakash-rai-24782413/
 
-## GitHub
+### GitHub
 
 https://github.com/gprai
 
-## Email
+### Email
 
 gprai86@gmail.com
 
 ---
 
-# ⚡ Current Focus
+## Current Focus
 
 - Platform Engineering
 - Kubernetes Automation
