@@ -20,7 +20,7 @@ SITE = {
     "tagline": "AWS & Azure Platform Engineer · DevOps · Cloud Infrastructure",
     "email": "gprai86@gmail.com",
   # Optional: add your Calendly link (https://calendly.com/yourname) to enable instant scheduling
-  "calendly": "",
+  "calendly": "https://calendly.com/yourname/your-event",
   # Optional: form action for an external form endpoint (Formspree, Getform). Leave empty to use mailto fallback.
   "form_action": "",
     "linkedin": "https://www.linkedin.com/in/gyan-prakash-rai-24782413/",
@@ -243,6 +243,16 @@ def css() -> str:
     padding: clamp(2rem, 8vw, 6rem) clamp(1rem, 8vw, 8rem);
     position: relative;
   }
+
+  /* ── Hero graphic (subtle animated blobs) ── */
+  .hero-graphic {
+    position: absolute; right: -8%; top: 10%; width: 60vw; height: 60vh; pointer-events: none; z-index:0; opacity:.18;
+    filter: blur(24px) saturate(120%);
+  }
+  .blob { transform-origin: center; mix-blend-mode: screen; }
+  .blob-anim { animation: floaty 12s ease-in-out infinite; }
+  .blob-anim:nth-child(2) { animation-duration: 16s; transform: translateY(10px); }
+  @keyframes floaty { 0%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.06)}100%{transform:translateY(0) scale(1)} }
 
   .hero-eyebrow {
     font-size: .7rem;
@@ -677,6 +687,19 @@ document.getElementById('bookingForm').addEventListener('submit', function(e){
 
     body = f"""
 <section class="hero">
+  <div class="hero-graphic" aria-hidden="true">
+    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1"><stop offset="0%" stop-color="#2dd4f5" stop-opacity=".9"/><stop offset="100%" stop-color="#3a9bff" stop-opacity=".9"/></linearGradient>
+        <filter id="f1"><feGaussianBlur stdDeviation="40"/></filter>
+      </defs>
+      <g filter="url(#f1)">
+        <circle class="blob blob-anim" cx="520" cy="120" r="120" fill="url(#g1)" />
+        <circle class="blob blob-anim" cx="220" cy="200" r="80" fill="#7ce7ff" opacity=".85" />
+        <circle class="blob blob-anim" cx="380" cy="380" r="140" fill="#5ad1ff" opacity=".6" />
+      </g>
+    </svg>
+  </div>
   <p class="hero-eyebrow">Cloud · DevOps · Platform Engineering</p>
   <h1>Gyan<br/><span class="highlight">Prakash Rai</span></h1>
   <p class="hero-sub">
@@ -945,6 +968,7 @@ def build():
         OUT / "projects.html":        build_projects(),
         OUT / "services.html":        build_services(),
         OUT / "contact.html":         build_contact(),
+      OUT / "404.html":            page("404 — Not Found", "<div class='page-hero'><h1>404 — Page Not Found</h1><p>The page you requested could not be found. Try the links below.</p><p style='margin-top:1rem'><a href=\"index.html\" class=\"btn btn-primary\">Home</a> <a href=\"projects.html\" class=\"btn btn-outline\">Projects</a></p></div>"),
         OUT / "projects" / "microservices-eks-terraform.html": build_project_doc("eks-cicd"),
         OUT / "projects" / "aws-platform.html":                build_project_doc("aws-platform"),
     }

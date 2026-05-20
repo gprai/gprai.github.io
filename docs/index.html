@@ -1,5 +1,14 @@
 <!DOCTYPE html>
-  <style>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home · Gyan Prakash Rai</title>
+  <meta name="description" content="AWS & Azure Platform Engineer, DevOps, Cloud Infrastructure Specialist"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  
+<style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=DM+Mono:wght@300;400;500&display=swap');
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -111,12 +120,293 @@
 
   h1, h2, h3 { font-family: var(--font-head); }
 
-  /* ── (rest of original styles unchanged) */
-  @media (max-width: 680px) {
-    .project-card { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
+  /* ── Hero ── */
+  .hero {
+    min-height: calc(100vh - 56px);
+    display: flex; flex-direction: column; justify-content: center;
+    padding: clamp(2rem, 8vw, 6rem) clamp(1rem, 8vw, 8rem);
+    position: relative;
   }
-</style>
+
+  /* ── Hero graphic (subtle animated blobs) ── */
+  .hero-graphic {
+    position: absolute; right: -8%; top: 10%; width: 60vw; height: 60vh; pointer-events: none; z-index:0; opacity:.18;
+    filter: blur(24px) saturate(120%);
+  }
+  .blob { transform-origin: center; mix-blend-mode: screen; }
+  .blob-anim { animation: floaty 12s ease-in-out infinite; }
+  .blob-anim:nth-child(2) { animation-duration: 16s; transform: translateY(10px); }
+  @keyframes floaty { 0%{transform:translateY(0) scale(1)}50%{transform:translateY(-18px) scale(1.06)}100%{transform:translateY(0) scale(1)} }
+
+  .hero-eyebrow {
+    font-size: .7rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+  }
+
+  .hero h1 .highlight {
+    -webkit-text-stroke: 1px var(--accent);
+    color: transparent;
+  }
+
+  .hero-sub {
+    margin-top: 1.5rem;
+    font-size: clamp(.85rem, 1.5vw, 1rem);
+    color: var(--muted);
+    max-width: 540px;
+    line-height: 1.8;
+  }
+
+  .hero-cta {
+    margin-top: 3rem;
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: .65rem 1.6rem;
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all .2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: linear-gradient(90deg,var(--accent),#7ce7ff);
+    color: #002027;
+    font-weight: 500;
+  }
+  .btn-primary:hover { background: #fff; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Cert pills ── */
+  .certs { display: flex; flex-wrap: wrap; gap: .65rem; }
+
+  .cert-pill {
+    display: flex; align-items: center; gap: .45rem;
+    padding: .4rem 1rem;
+    border-radius: 2px;
+    font-size: .72rem;
+    letter-spacing: .05em;
+    border: 1px solid;
+    transition: transform .15s;
+  }
+  .cert-pill:hover { transform: translateY(-2px); }
+
+  /* ── Stack grid ── */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .stack-card {
+    background: linear-gradient(180deg,var(--surface), #0f2a36);
+    padding: 1.8rem;
+    transition: background .2s;
+  }
+  .stack-card:hover { background: #16162a; }
+
+  .stack-card h3 {
+    font-size: .85rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .stack-card ul { list-style: none; }
+  .stack-card li {
+    color: var(--muted);
+    font-size: .8rem;
+    padding: .25rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .stack-card li:last-child { border-bottom: none; }
+  .stack-card li::before { content: '→'; color: var(--accent); font-size: .7rem; }
+
+  /* ── Projects ── */
+  .project-card {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 2.5rem;
+    margin-bottom: 1.5px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    transition: border-color .2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform .3s;
+  }
+  .project-card:hover::before { transform: scaleY(1); }
+  .project-card:hover { border-color: var(--accent); }
+
+  .project-badge {
+    display: inline-block;
+    font-size: .6rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    padding: .2rem .6rem;
+    border-radius: 1px;
+    margin-bottom: .75rem;
+  }
+  .badge-prod  { background: rgba(0,229,255,.1); color: var(--accent); border: 1px solid rgba(0,229,255,.3); }
+  .badge-dev   { background: rgba(255,153,0,.1); color: var(--aws);   border: 1px solid rgba(255,153,0,.3); }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    color: var(--text);
+    margin-bottom: .75rem;
+  }
+
+  .project-summary { color: var(--muted); font-size: .83rem; line-height: 1.8; margin-bottom: 1.5rem; }
+
+  .project-highlights { list-style: none; margin-bottom: 1.5rem; }
+  .project-highlights li {
+    font-size: .78rem; color: var(--muted);
+    padding: .2rem 0;
+    display: flex; gap: .5rem;
+  }
+  .project-highlights li::before { content: '◆'; color: var(--accent); font-size: .5rem; margin-top: .35rem; }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.5rem; }
+  .tag {
+    font-size: .65rem;
+    letter-spacing: .08em;
+    padding: .2rem .55rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 1px;
+  }
+
+  .project-links { display: flex; gap: .75rem; }
+
+  /* ── Services ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .service-card {
+    background: linear-gradient(180deg,var(--surface), #0f2a36);
+    padding: 2rem;
+    transition: background .2s;
+  }
+  .service-card:hover { background: #16162a; }
+
+  .service-icon { font-size: 1.4rem; margin-bottom: 1rem; }
+  .service-card h3 {
+    font-size: .95rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: var(--text);
+    margin-bottom: .9rem;
+  }
+
+  .service-card ul { list-style: none; }
+  .service-card li {
+    font-size: .78rem;
+    color: var(--muted);
+    padding: .3rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; gap: .5rem;
+  }
+  .service-card li:last-child { border-bottom: none; }
+  .service-card li::before { content: '–'; color: var(--accent); }
+
+  /* ── Contact ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  .contact-card {
+    background: linear-gradient(180deg,var(--surface), #0f2a36);
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background .2s;
+    display: block;
+  }
+  .contact-card:hover { background: #16162a; }
+  .contact-card .contact-type {
+    font-size: .62rem; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: .5rem;
+  }
+  .contact-card .contact-value { font-size: .88rem; color: var(--text); }
+
+  /* ── Footer ── */
+  footer {
+    position: relative; z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 2rem clamp(1rem, 8vw, 8rem);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+    font-size: .72rem; color: var(--muted);
+  }
+
+  /* ── Page heading ── */
+  .page-hero {
+    padding: 5rem clamp(1rem, 8vw, 8rem) 3rem;
+    border-bottom: 1px solid var(--border);
+    position: relative; z-index: 1;
+    max-width: 1200px; margin: 0 auto;
+  }
+
+  .page-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -.03em; }
+  .page-hero p { color: var(--muted); margin-top: .75rem; max-width: 540px; }
+
+  /* ── Divider ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
   /* ── Responsive ── */
   @media (max-width: 680px) {
     .project-card { grid-template-columns: 1fr; }
@@ -140,6 +430,19 @@
 
   <main>
 <section class="hero">
+  <div class="hero-graphic" aria-hidden="true">
+    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1"><stop offset="0%" stop-color="#2dd4f5" stop-opacity=".9"/><stop offset="100%" stop-color="#3a9bff" stop-opacity=".9"/></linearGradient>
+        <filter id="f1"><feGaussianBlur stdDeviation="40"/></filter>
+      </defs>
+      <g filter="url(#f1)">
+        <circle class="blob blob-anim" cx="520" cy="120" r="120" fill="url(#g1)" />
+        <circle class="blob blob-anim" cx="220" cy="200" r="80" fill="#7ce7ff" opacity=".85" />
+        <circle class="blob blob-anim" cx="380" cy="380" r="140" fill="#5ad1ff" opacity=".6" />
+      </g>
+    </svg>
+  </div>
   <p class="hero-eyebrow">Cloud · DevOps · Platform Engineering</p>
   <h1>Gyan<br/><span class="highlight">Prakash Rai</span></h1>
   <p class="hero-sub">
@@ -152,6 +455,7 @@
     <a href="projects.html" class="btn btn-primary">View Projects</a>
     <a href="services.html" class="btn btn-outline">Services</a>
     <a href="contact.html" class="btn btn-outline">Contact</a>
+    <button id="bookBtn" class="btn btn-primary" style="background:transparent;border:1px solid rgba(255,255,255,.06);">Book a Demo</button>
   </div>
 </section>
 
@@ -220,6 +524,73 @@ function type() {
   setTimeout(type, deleting ? 40 : 70);
 }
 type();
+</script>
+
+
+<!-- Booking modal and script -->
+<div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;align-items:center;justify-content:center"> 
+  <div style="background:var(--surface);max-width:720px;width:94%;padding:1.2rem;border-radius:6px;border:1px solid var(--border)">
+    <h3 style="margin:0 0 .5rem">Book a Demo</h3>
+    <p style="color:var(--muted);margin:0 0 1rem;font-size:.92rem">Pick a preferred time and tell me briefly about your requirements.</p>
+    <form id="bookingForm">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
+        <input name="name" placeholder="Your name" required style="padding:.6rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+        <input name="email" type="email" placeholder="Email" required style="padding:.6rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+      </div>
+      <div style="margin-top:.6rem;display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
+        <input name="date" type="date" style="padding:.5rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+        <input name="time" type="time" style="padding:.5rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+      </div>
+      <textarea name="note" placeholder="Brief note (optional)" style="width:100%;margin-top:.6rem;padding:.6rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)"></textarea>
+      <div style="display:flex;gap:.5rem;margin-top:.8rem;justify-content:flex-end">
+        <button type="button" id="bookingCancel" class="btn btn-outline">Cancel</button>
+        <button type="submit" class="btn btn-primary">Request Booking</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+document.getElementById('bookBtn').addEventListener('click', function(){
+  document.getElementById('bookingModal').style.display = 'flex';
+});
+document.getElementById('bookingCancel').addEventListener('click', function(){
+  document.getElementById('bookingModal').style.display = 'none';
+});
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const f = e.target;
+  const data = new FormData(f);
+  const name = encodeURIComponent(data.get('name')||'');
+  const email = encodeURIComponent(data.get('email')||'');
+  // If Calendly is configured, open Calendly with prefilled name/email in a new tab.
+  const calendly = "https://calendly.com/yourname/your-event";
+  if (calendly) {
+    const url = calendly + (calendly.includes('?') ? '&' : '?') + 'name=' + name + '&email=' + email;
+    window.open(url, '_blank');
+    document.getElementById('bookingModal').style.display = 'none';
+    return;
+  }
+  // If a form action is configured, POST the form data there.
+  const formAction = "";
+  if (formAction) {
+    fetch(formAction, { method: 'POST', body: data }).then(()=>{
+      alert('Booking request sent — thank you!');
+      document.getElementById('bookingModal').style.display = 'none';
+    }).catch(()=>{ alert('Unable to send booking request.'); });
+    return;
+  }
+  // Fallback: open mail client with details to owner's email
+  const subject = encodeURIComponent('Booking request from ' + (data.get('name')||''));
+  const body = encodeURIComponent('Name: ' + (data.get('name')||'') + '
+Email: ' + (data.get('email')||'') + '
+Preferred: ' + (data.get('date')||'') + ' ' + (data.get('time')||'') + '
+
+Note:
+' + (data.get('note')||''));
+  const owner = "gprai86@gmail.com";
+  window.location.href = 'mailto:' + encodeURIComponent(owner) + '?subject=' + subject + '&body=' + body;
+});
 </script>
 
 </main>
