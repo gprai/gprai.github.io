@@ -1,7 +1,3 @@
-<div class="layout-container">
-
-<div class="main-section">
-
 # Hi 👋 I'm Gyan Prakash Rai
 
 ### AWS & Azure Platform Engineer • DevOps Engineer • Cloud Infrastructure Specialist
@@ -249,7 +245,3 @@ Email: gprai86@gmail.com
 - Infrastructure as Code
 - DevOps Consulting
 - Freelance Cloud Projects
-
-</div>
-
-</div>
