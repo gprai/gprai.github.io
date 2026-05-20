@@ -114,21 +114,17 @@ Production-grade Kubernetes platform to **secure, GitOps-ready CI pipeline** usi
 
 - Built Using: Terraform, Amazon EKS, Karpenter, GitHub Actions, Helm, GitOps Workflows
 
-🔗 Repository:
-
-https://github.com/gprai/microservices-eks-terraform-cicd
+🔗 Repository: https://github.com/gprai/microservices-eks-terraform-cicd
 
 📄 Detailed Documentation:
 
-[View Project Documentation](/gprai.github.io/projects/microservices-eks-terraform.html)
+[View Project Documentation](projects/microservices-eks-terraform.html)
 
 ### 2. AWS Platform Engineering (Under Development)
 
 Enterprise-grade AWS platform engineering project implementing a secure multi-account landing zone using AWS Control Tower, AWS Organizations, Terraform, GitHub Actions, and GitOps principles for automated governance, security, identity, networking, and scalable cloud foundation deployment.
 
-🔗 Repository:
-
-https://github.com/gprai/aws-platform-engineering
+🔗 Repository: https://github.com/gprai/aws-platform-engineering
 
 ### Architecture Diagram
 
@@ -136,7 +132,7 @@ https://github.com/gprai/aws-platform-engineering
 
 📄 Detailed Documentation:
 
-[View Project Documentation](/gprai.github.io/projects/aws-platform.html)
+[View Project Documentation](projects/aws-platform.html)
 
 ---
 ## Services Offered
