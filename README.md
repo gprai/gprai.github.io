@@ -1,4 +1,4 @@
-# Hi 👋 I'm Gyan Prakash Rai
+# I'm Gyan Prakash Rai
 
 ### AWS & Azure Platform Engineer • DevOps Engineer • Cloud Infrastructure Specialist
 
