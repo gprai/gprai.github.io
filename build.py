@@ -979,6 +979,17 @@ def build():
         print(f"  ✓  {path}")
 
     print(f"\nBuild complete → {OUT}/")
+    # Mirror generated docs into repository root so pages work when served from repo root
+    try:
+      repo_root = Path('.')
+      for f in OUT.rglob('*'):
+        if f.is_file():
+          dest = repo_root / f.relative_to(OUT)
+          dest.parent.mkdir(parents=True, exist_ok=True)
+          shutil.copyfile(f, dest)
+      print(f"Mirrored {OUT}/ -> repository root for GitHub Pages compatibility")
+    except Exception as e:
+      print("Warning: failed to mirror docs to repo root:", e)
 
 
 if __name__ == "__main__":

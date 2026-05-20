@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Home · Gyan Prakash Rai</title>
+  <title>AWS Platform Engineering · Gyan Prakash Rai</title>
   <meta name="description" content="AWS & Azure Platform Engineer, DevOps, Cloud Infrastructure Specialist"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -420,179 +420,42 @@
   
 <nav>
   <a class="nav-logo" href="index.html">GPR<span style="color:var(--muted)">.</span></a>
-  <ul class="nav-links"><li><a href="index.html" style="color:var(--accent)">Home</a></li>
+  <ul class="nav-links"><li><a href="index.html" >Home</a></li>
 <li><a href="stack.html" >Stack</a></li>
-<li><a href="projects.html" >Projects</a></li>
+<li><a href="projects.html" style="color:var(--accent)">Projects</a></li>
 <li><a href="services.html" >Services</a></li>
 <li><a href="contact.html" >Contact</a></li>
 </ul>
 </nav>
 
   <main>
-<section class="hero">
-  <div class="hero-graphic" aria-hidden="true">
-    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-      <defs>
-        <linearGradient id="g1" x1="0" x2="1"><stop offset="0%" stop-color="#2dd4f5" stop-opacity=".9"/><stop offset="100%" stop-color="#3a9bff" stop-opacity=".9"/></linearGradient>
-        <filter id="f1"><feGaussianBlur stdDeviation="40"/></filter>
-      </defs>
-      <g filter="url(#f1)">
-        <circle class="blob blob-anim" cx="520" cy="120" r="120" fill="url(#g1)" />
-        <circle class="blob blob-anim" cx="220" cy="200" r="80" fill="#7ce7ff" opacity=".85" />
-        <circle class="blob blob-anim" cx="380" cy="380" r="140" fill="#5ad1ff" opacity=".6" />
-      </g>
-    </svg>
-  </div>
-  <p class="hero-eyebrow">Cloud · DevOps · Platform Engineering</p>
-  <h1>Gyan<br/><span class="highlight">Prakash Rai</span></h1>
-  <p class="hero-sub">
-    <span id="typing" style="color:var(--accent)"></span><span style="color:var(--accent);animation:blink 1s step-end infinite">_</span>
-    <br/><br/>
-    Designing and automating scalable, secure, production-grade infrastructure
-    on AWS and Azure — with Kubernetes, Terraform, CI/CD, and GitOps at the core.
-  </p>
-  <div class="hero-cta">
-    <a href="projects.html" class="btn btn-primary">View Projects</a>
-    <a href="services.html" class="btn btn-outline">Services</a>
-    <a href="contact.html" class="btn btn-outline">Contact</a>
-    <button id="bookBtn" class="btn btn-primary" style="background:transparent;border:1px solid rgba(255,255,255,.06);">Book a Demo</button>
-  </div>
-</section>
-
-<hr class="divider"/>
-
+<div class="page-hero">
+  <a href="projects.html" style="font-size:.75rem;color:var(--muted);text-decoration:none;display:inline-block;margin-bottom:1rem">← Back to Projects</a>
+  <span class="project-badge badge-dev" style="display:inline-block;margin-bottom:.75rem">In Development</span>
+  <h1>AWS Platform Engineering</h1>
+  <p>Enterprise-grade AWS platform implementing a secure multi-account landing zone with AWS Control Tower, Organizations, and Terraform-driven governance.</p>
+</div>
 <section class="section">
-  <p class="section-label">Certifications</p>
-  <div class="certs">
-<div class="cert-pill" style="border-color:#FF990044;color:#FF9900">
-  <span>☁</span>
-  <span>AWS Solutions Architect – Associate</span>
-</div>
-<div class="cert-pill" style="border-color:#FF990044;color:#FF9900">
-  <span>☁</span>
-  <span>AWS Developer – Associate</span>
-</div>
-<div class="cert-pill" style="border-color:#FF990044;color:#FF9900">
-  <span>☁</span>
-  <span>AWS SysOps Administrator – Associate</span>
-</div>
-<div class="cert-pill" style="border-color:#0078D444;color:#0078D4">
-  <span>⬡</span>
-  <span>Azure Fundamentals</span>
-</div>
-<div class="cert-pill" style="border-color:#0078D444;color:#0078D4">
-  <span>⬡</span>
-  <span>Azure Administrator Associate</span>
-</div>
-<div class="cert-pill" style="border-color:#0078D444;color:#0078D4">
-  <span>⬡</span>
-  <span>Azure DevOps Engineer Expert</span>
-</div>
-<div class="cert-pill" style="border-color:#0078D444;color:#0078D4">
-  <span>⬡</span>
-  <span>Azure AI Engineer Associate</span>
-</div></div>
-</section>
-
-<hr class="divider"/>
-
-<section class="section">
-  <p class="section-label">About</p>
-  <p style="max-width:680px;color:var(--muted);line-height:2;font-size:.88rem">
-    Cloud &amp; DevOps Engineer specialising in designing and automating scalable, secure,
-    production-grade infrastructure on AWS and Azure. I help teams build reliable cloud
-    platforms using Kubernetes (EKS/AKS), Terraform, CI/CD pipelines, Docker, and
-    GitOps-driven delivery workflows.
-    <br/><br/>
-    I also design <strong style="color:var(--text)">AI-ready cloud architectures</strong>
-    for modern workloads, including Generative AI and MLOps systems — integrating
-    OpenAI, Azure OpenAI, AWS Bedrock, and building infrastructure for LLM applications
-    and RAG pipelines.
-  </p>
-</section>
-<style>@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}</style>
-
-<script>
-const words = ["AWS &amp; Azure Platform Engineer", "Kubernetes \u00b7 EKS \u00b7 AKS", "Terraform \u00b7 GitOps \u00b7 CI/CD", "DevSecOps \u00b7 Observability", "AI-Ready Cloud Architecture"];
-let wi = 0, ci = 0, deleting = false;
-const el = document.getElementById('typing');
-function type() {
-  const w = words[wi];
-  el.innerHTML = deleting ? w.slice(0, ci--) : w.slice(0, ci++);
-  if (!deleting && ci > w.length) { deleting = true; setTimeout(type, 1400); return; }
-  if (deleting && ci < 0) { deleting = false; wi = (wi + 1) % words.length; }
-  setTimeout(type, deleting ? 40 : 70);
-}
-type();
-</script>
-
-
-<!-- Booking modal and script -->
-<div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;align-items:center;justify-content:center"> 
-  <div style="background:var(--surface);max-width:720px;width:94%;padding:1.2rem;border-radius:6px;border:1px solid var(--border)">
-    <h3 style="margin:0 0 .5rem">Book a Demo</h3>
-    <p style="color:var(--muted);margin:0 0 1rem;font-size:.92rem">Pick a preferred time and tell me briefly about your requirements.</p>
-    <form id="bookingForm">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
-        <input name="name" placeholder="Your name" required style="padding:.6rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
-        <input name="email" type="email" placeholder="Email" required style="padding:.6rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:3rem;align-items:start">
+    <div>
+      <p class="section-label">Overview</p>
+      <p style="color:var(--muted);font-size:.88rem;line-height:2;margin-bottom:2rem">Enterprise-grade AWS platform implementing a secure multi-account landing zone with AWS Control Tower, Organizations, and Terraform-driven governance.</p>
+      <p class="section-label">Key Highlights</p>
+      <ul style="list-style:none"><li style="color:var(--muted);font-size:.85rem;padding:.4rem 0;border-bottom:1px solid var(--border);display:flex;gap:.6rem"><span style="color:var(--accent)">◆</span>Multi-account landing zone with AWS Control Tower</li><li style="color:var(--muted);font-size:.85rem;padding:.4rem 0;border-bottom:1px solid var(--border);display:flex;gap:.6rem"><span style="color:var(--accent)">◆</span>Automated governance, identity, and networking baseline</li><li style="color:var(--muted);font-size:.85rem;padding:.4rem 0;border-bottom:1px solid var(--border);display:flex;gap:.6rem"><span style="color:var(--accent)">◆</span>Terraform modules for repeatable account vending</li><li style="color:var(--muted);font-size:.85rem;padding:.4rem 0;border-bottom:1px solid var(--border);display:flex;gap:.6rem"><span style="color:var(--accent)">◆</span>GitOps-driven policy and compliance automation</li></ul>
+    </div>
+    <div>
+      <div style="border:1px solid var(--border);padding:1.8rem;background:var(--surface)">
+        <p class="section-label">Stack</p>
+        <div class="tag-list" style="flex-direction:column"><span class="tag">AWS Control Tower</span><span class="tag">AWS Organizations</span><span class="tag">Terraform</span><span class="tag">GitHub Actions</span><span class="tag">GitOps</span></div>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+          <a href="https://github.com/gprai/aws-platform-engineering" class="btn btn-primary" target="_blank" rel="noopener" style="width:100%;text-align:center;display:block">
+            View on GitHub ↗
+          </a>
+        </div>
       </div>
-      <div style="margin-top:.6rem;display:grid;grid-template-columns:1fr 1fr;gap:0.6rem">
-        <input name="date" type="date" style="padding:.5rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
-        <input name="time" type="time" style="padding:.5rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)" />
-      </div>
-      <textarea name="note" placeholder="Brief note (optional)" style="width:100%;margin-top:.6rem;padding:.6rem;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--text)"></textarea>
-      <div style="display:flex;gap:.5rem;margin-top:.8rem;justify-content:flex-end">
-        <button type="button" id="bookingCancel" class="btn btn-outline">Cancel</button>
-        <button type="submit" class="btn btn-primary">Request Booking</button>
-      </div>
-    </form>
+    </div>
   </div>
-</div>
-
-<script>
-document.getElementById('bookBtn').addEventListener('click', function(){
-  document.getElementById('bookingModal').style.display = 'flex';
-});
-document.getElementById('bookingCancel').addEventListener('click', function(){
-  document.getElementById('bookingModal').style.display = 'none';
-});
-document.getElementById('bookingForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const f = e.target;
-  const data = new FormData(f);
-  const name = encodeURIComponent(data.get('name')||'');
-  const email = encodeURIComponent(data.get('email')||'');
-  // If Calendly is configured, open Calendly with prefilled name/email in a new tab.
-  const calendly = "https://calendly.com/yourname/your-event";
-  if (calendly) {
-    const url = calendly + (calendly.includes('?') ? '&' : '?') + 'name=' + name + '&email=' + email;
-    window.open(url, '_blank');
-    document.getElementById('bookingModal').style.display = 'none';
-    return;
-  }
-  // If a form action is configured, POST the form data there.
-  const formAction = "";
-  if (formAction) {
-    fetch(formAction, { method: 'POST', body: data }).then(()=>{
-      alert('Booking request sent — thank you!');
-      document.getElementById('bookingModal').style.display = 'none';
-    }).catch(()=>{ alert('Unable to send booking request.'); });
-    return;
-  }
-  // Fallback: open mail client with details to owner's email
-  const subject = encodeURIComponent('Booking request from ' + (data.get('name')||''));
-  const body = encodeURIComponent('Name: ' + (data.get('name')||'') + '
-Email: ' + (data.get('email')||'') + '
-Preferred: ' + (data.get('date')||'') + ' ' + (data.get('time')||'') + '
-
-Note:
-' + (data.get('note')||''));
-  const owner = "gprai86@gmail.com";
-  window.location.href = 'mailto:' + encodeURIComponent(owner) + '?subject=' + subject + '&body=' + body;
-});
-</script>
-
+</section>
 </main>
   
 <footer>
