@@ -395,7 +395,7 @@ hr.div{border:none;border-top:1px solid var(--border)}
         <p style="margin:0;color:var(--muted);font-size:.92rem;line-height:1.4">During the booking flow you can choose a 30 minute, 1 hour, or 2 hour meeting — those durations must be configured as Event Types inside your Calendly account and will appear as options when scheduling.</p>
         <div style="margin-top:1rem;display:flex;gap:.6rem;align-items:center">
           <button class="btn btn-p" onclick="openCalPopup()">Open Booking</button>
-          <a class="btn btn-o" href="https://calendly.com/gprai86" target="_blank" rel="noopener">Open in new tab</a>
+          <a class="btn btn-o" href="https://calendly.com/gprai" target="_blank" rel="noopener">Open in new tab</a>
         </div>
       </div>
     </div>
@@ -420,7 +420,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape') closeCal();
 
 function openCalPopup(){
   // Prefer Calendly popup widget when available
-  const profileUrl = 'https://calendly.com/gprai86';
+  const profileUrl = 'https://calendly.com/gprai';
   try{
     if(window.Calendly && typeof Calendly.showPopupWidget === 'function'){
       Calendly.showPopupWidget(profileUrl);
