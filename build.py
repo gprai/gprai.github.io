@@ -782,41 +782,27 @@ footer a:hover{color:var(--cyan)}
 # ═════════════════════════════════════════════════════════════════════════════
 #  CALENDLY MODAL
 # ═════════════════════════════════════════════════════════════════════════════
-def calendly_modal() -> str:
+def calendly_scripts() -> str:
     return f"""
-<div class="cal-overlay" id="calModal">
-  <div class="cal-modal">
-    <div class="cal-header">
-      <div>
-        <h2>📅 Book a Meeting</h2>
-        <p>Schedule a cloud / platform engineering consultation — powered by Calendly</p>
-      </div>
-      <button class="cal-close" onclick="closeCal()" aria-label="Close">✕</button>
-    </div>
-    <div class="cal-body">
-      <div class="cal-loading" id="calLoad">
-        <div class="spinner"></div>
-        Loading Calendly…
-      </div>
-      <iframe id="calFrame"
-        src="{SITE['calendly']}?embed_domain=gprai.github.io&embed_type=Inline&hide_gdpr_banner=1&background_color=112240&text_color=e2eaf5&primary_color=00e5ff"
-        title="Book a meeting"
-        onload="document.getElementById('calLoad').style.display='none'"></iframe>
-    </div>
-  </div>
-</div>
+<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css"/>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
-function openCal(){{document.getElementById('calModal').classList.add('open');document.body.style.overflow='hidden'}}
-function closeCal(){{document.getElementById('calModal').classList.remove('open');document.body.style.overflow=''}}
-document.getElementById('calModal').addEventListener('click',function(e){{if(e.target===this)closeCal()}})
-document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeCal()}})
-</script>"""
+function openCalPopup(){{
+  const url = "{SITE['calendly']}";
+  if (window.Calendly && Calendly.initPopupWidget) {{
+    Calendly.initPopupWidget({{url}});
+  }} else {{
+    window.open(url, '_blank');
+  }}
+}}
+</script>
+"""
 
 # ═════════════════════════════════════════════════════════════════════════════
 #  NAV / FOOTER / PAGE SHELL
 # ═════════════════════════════════════════════════════════════════════════════
 def nav(active="") -> str:
-    links = [("Home","index.html"),("Stack","stack.html"),
+    links = [("Home","index.html"),("Tech Stack","stack.html"),
              ("Projects","projects.html"),("Services","services.html"),("Contact","contact.html")]
     items = "".join(
         f'<li><a href="/{h}" {"class=\"active\"" if l.lower()==active.lower() else ""}>{l}</a></li>'
@@ -824,7 +810,7 @@ def nav(active="") -> str:
     return f"""<nav>
   <a class="nav-logo" href="/index.html">GPR<span>.</span></a>
   <ul class="nav-links">{items}</ul>
-  <button class="nav-book" onclick="openCal()">📅 Book a Demo</button>
+  <button class="nav-book" onclick="openCalPopup()">📅 Book a Demo</button>
 </nav>"""
 
 def foot() -> str:
@@ -851,9 +837,9 @@ def page(title, body, active="") -> str:
 </head>
 <body>
   {nav(active)}
-  {calendly_modal()}
   <main>{body}</main>
   {foot()}
+  {calendly_scripts()}
 </body>
 </html>"""
 
@@ -967,7 +953,7 @@ def build_index() -> str:
     </p>
     <div class="hero-cta">
       <a href="/projects.html" class="btn btn-p">View Projects</a>
-      <button class="btn btn-v" onclick="openCal()">📅 Book a Demo</button>
+      <button class="btn btn-v" onclick="openCalPopup()">📅 Book a Demo</button>
       <a href="/services.html" class="btn btn-o">Services</a>
     </div>
     <div class="hero-stats">{stats_html}</div>
@@ -1026,7 +1012,7 @@ t();
       <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
         <a href="/contact.html" class="btn btn-p">Get in Touch</a>
         <a href="{SITE['resume']}" class="btn btn-o" target="_blank">Resume ↗</a>
-        <button class="btn btn-v" onclick="openCal()">📅 Book a Demo</button>
+        <button class="btn btn-v" onclick="openCalPopup()">📅 Book a Demo</button>
       </div>
     </div>
     <div class="skill-bars">{bars_html}</div>
@@ -1093,7 +1079,7 @@ def build_stack() -> str:
         f'<div class="stack-head"><div class="stack-icon">{s["icon"]}</div><h3>{s["cat"]}</h3></div>'
         f'<ul>{"".join(f"<li>{i}</li>" for i in s["items"])}</ul>'
         f'</div>' for s in STACK)
-    return page("Stack", f"""
+    return page("Tech Stack", f"""
 <div class="page-hero">
   <p class="sec-label">Tech Stack</p>
   <h1>Tools &amp; Technologies</h1>
@@ -1102,7 +1088,7 @@ def build_stack() -> str:
 <section class="section">
   <div class="stack-grid">{cards}</div>
 </section>
-""", active="Stack")
+""", active="Tech Stack")
 
 # ═════════════════════════════════════════════════════════════════════════════
 #  PAGE: PROJECTS
@@ -1185,7 +1171,7 @@ def build_services() -> str:
       Full cloud platform, CI/CD overhaul, or a one-off architecture review — let's talk.
     </p>
     <div style="display:flex;gap:.75rem;flex-wrap:wrap">
-      <button class="btn btn-v" onclick="openCal()">📅 Book a Demo Call</button>
+      <button class="btn btn-v" onclick="openCalPopup()">📅 Book a Demo</button>
       <a href="/contact.html" class="btn btn-o">Contact Me</a>
     </div>
   </div>
@@ -1220,7 +1206,7 @@ def build_contact() -> str:
     <p style="color:var(--sub);font-size:.86rem;margin-bottom:1.2rem;line-height:1.8">
       Use the Calendly widget to pick a time that works. I confirm within 24 hours.
     </p>
-    <button class="btn btn-p" onclick="openCal()">📅 Open Booking Calendar</button>
+    <button class="btn btn-p" onclick="openCalPopup()">📅 Book a Demo</button>
   </div>
 </section>
 """, active="Contact")

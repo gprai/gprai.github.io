@@ -359,7 +359,7 @@ hr.div{border:none;border-top:1px solid var(--border)}
 <nav>
   <a class="nav-logo" href="/index.html">GPR<span>.</span></a>
   <ul class="nav-links"><li><a href="/index.html" >Home</a></li><li><a href="/stack.html" >Tech Stack</a></li><li><a href="/projects.html" class="active">Projects</a></li><li><a href="/services.html" >Services</a></li><li><a href="/contact.html" >Contact</a></li></ul>
-  <button class="nav-book" onclick="openCal()">📅 Book a Demo</button>
+  <button class="nav-book" onclick="openCalPopup()">📅 Book a Demo</button>
 </nav>
   
 <div class="cal-overlay" id="calModal">
@@ -399,7 +399,22 @@ document.getElementById('calModal').addEventListener('click',function(e){
   if(e.target===this)closeCal();
 });
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCal();});
+function openCalPopup(){
+  const profileUrl = 'https://calendly.com/gprai';
+  try{
+    if(window.Calendly && typeof Calendly.showPopupWidget === 'function'){
+      Calendly.showPopupWidget(profileUrl);
+      return;
+    }
+    if(window.Calendly && typeof Calendly.initPopupWidget === 'function'){
+      Calendly.initPopupWidget({url: profileUrl});
+      return;
+    }
+  }catch(e){console.warn('Calendly popup failed',e);}
+  window.open(profileUrl,'_blank');
+}
 </script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <main>
 <div class="page-hero">
