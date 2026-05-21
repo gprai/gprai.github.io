@@ -7,6 +7,7 @@
   <meta name="description" content="AWS & Azure Platform Engineer — Kubernetes, Terraform, CI/CD, GitOps, DevSecOps"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
   
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Fira+Code:wght@300;400;500&display=swap');
@@ -380,21 +381,21 @@ hr.div{border:none;border-top:1px solid var(--border)}
     <div class="cal-header">
       <div>
         <h2>📅 Book a Meeting</h2>
-        <p>Schedule a cloud / platform engineering consultation — powered by Calendly</p>
+        <p>Choose 30m, 1h, or 2h sessions with live availability from Calendly.</p>
       </div>
       <button class="cal-close" onclick="closeCal()" aria-label="Close">✕</button>
     </div>
     <div class="cal-body">
       <div class="cal-loading" id="calLoad">
         <div class="spinner"></div>
-        Loading Calendly…
+        Loading booking options…
       </div>
-      <iframe
-        id="calFrame"
-        src="https://calendly.com/gprai86?embed_domain=gprai.github.io&embed_type=Inline&hide_gdpr_banner=1"
-        title="Book a meeting"
-        onload="document.getElementById('calLoad').style.display='none'"
-      ></iframe>
+      <div id="calendlyWidgetContainer">
+        <div id="calendlyInlineWidget" class="calendly-inline-widget"
+          data-url="https://calendly.com/gprai86?hide_gdpr_banner=1&embed_domain=gprai.github.io"
+          style="min-height:480px;">
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -403,16 +404,30 @@ hr.div{border:none;border-top:1px solid var(--border)}
 function openCal(){
   document.getElementById('calModal').classList.add('open');
   document.body.style.overflow='hidden';
+  const loader=document.getElementById('calLoad');
+  if(loader) loader.style.display='flex';
 }
 function closeCal(){
   document.getElementById('calModal').classList.remove('open');
   document.body.style.overflow='';
 }
 document.getElementById('calModal').addEventListener('click',function(e){
-  if(e.target===this)closeCal();
+  if(e.target===this) closeCal();
 });
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeCal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape') closeCal();});
+const calendlyWidget=document.getElementById('calendlyInlineWidget');
+const widgetLoader=document.getElementById('calLoad');
+if(calendlyWidget && widgetLoader){
+  const observer=new MutationObserver(function(){
+    if(calendlyWidget.querySelector('iframe')){
+      widgetLoader.style.display='none';
+      observer.disconnect();
+    }
+  });
+  observer.observe(calendlyWidget,{childList:true,subtree:true});
+}
 </script>
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 
   <main>
 <!-- HERO -->
