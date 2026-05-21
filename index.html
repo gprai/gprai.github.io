@@ -373,7 +373,7 @@ hr.div{border:none;border-top:1px solid var(--border)}
 <nav>
   <a class="nav-logo" href="/index.html">GPR<span>.</span></a>
   <ul class="nav-links"><li><a href="/index.html" class="active">Home</a></li><li><a href="/stack.html" >Tech Stack</a></li><li><a href="/projects.html" >Projects</a></li><li><a href="/services.html" >Services</a></li><li><a href="/contact.html" >Contact</a></li></ul>
-  <button class="nav-book" onclick="openCal()">📅 Book a Call</button>
+  <button class="nav-book" onclick="openCalPopup()">📅 Book a Call</button>
 </nav>
   
 <div class="cal-overlay" id="calModal">
@@ -381,7 +381,7 @@ hr.div{border:none;border-top:1px solid var(--border)}
     <div class="cal-header">
       <div>
         <h2>📅 Book a Meeting</h2>
-        <p>Choose 30m, 1h, or 2h sessions with live availability from Calendly.</p>
+        <p>Schedule a cloud / platform engineering consultation — powered by Calendly</p>
       </div>
       <button class="cal-close" onclick="closeCal()" aria-label="Close">✕</button>
     </div>
@@ -390,10 +390,12 @@ hr.div{border:none;border-top:1px solid var(--border)}
         <div class="spinner"></div>
         Loading booking options…
       </div>
-      <div id="calendlyWidgetContainer">
-        <div id="calendlyInlineWidget" class="calendly-inline-widget"
-          data-url="https://calendly.com/gprai86?hide_gdpr_banner=1&embed_domain=gprai.github.io"
-          style="min-height:480px;">
+      <div id="cal-body-content" style="padding:1.1rem;">
+        <p style="margin-bottom:.6rem">Schedule a cloud / platform engineering consultation — powered by Calendly.</p>
+        <p style="margin:0;color:var(--muted);font-size:.92rem;line-height:1.4">During the booking flow you can choose a 30 minute, 1 hour, or 2 hour meeting — those durations must be configured as Event Types inside your Calendly account and will appear as options when scheduling.</p>
+        <div style="margin-top:1rem;display:flex;gap:.6rem;align-items:center">
+          <button class="btn btn-p" onclick="openCalPopup()">Open Booking</button>
+          <a class="btn btn-o" href="https://calendly.com/gprai86" target="_blank" rel="noopener">Open in new tab</a>
         </div>
       </div>
     </div>
@@ -415,16 +417,33 @@ document.getElementById('calModal').addEventListener('click',function(e){
   if(e.target===this) closeCal();
 });
 document.addEventListener('keydown',function(e){if(e.key==='Escape') closeCal();});
-const calendlyWidget=document.getElementById('calendlyInlineWidget');
-const widgetLoader=document.getElementById('calLoad');
-if(calendlyWidget && widgetLoader){
-  const observer=new MutationObserver(function(){
-    if(calendlyWidget.querySelector('iframe')){
-      widgetLoader.style.display='none';
-      observer.disconnect();
+
+function openCalPopup(){
+  // Prefer Calendly popup widget when available
+  const profileUrl = 'https://calendly.com/gprai86';
+  try{
+    if(window.Calendly && typeof Calendly.showPopupWidget === 'function'){
+      Calendly.showPopupWidget(profileUrl);
+      return;
     }
-  });
-  observer.observe(calendlyWidget,{childList:true,subtree:true});
+    if(window.Calendly && typeof Calendly.initPopupWidget === 'function'){
+      Calendly.initPopupWidget({url: profileUrl});
+      return;
+    }
+  }catch(e){
+    console.warn('Calendly popup failed',e);
+  }
+  // Fallback: open modal with chooser content
+  openCal();
+  const loader=document.getElementById('calLoad');
+  if(loader) loader.style.display='none';
+  // If popup isn't available after a short delay, open Calendly in new tab
+  setTimeout(()=>{
+    if(!window.Calendly){
+      // open profile as fallback
+      window.open(profileUrl,'_blank');
+    }
+  },1500);
 }
 </script>
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
@@ -442,7 +461,7 @@ if(calendlyWidget && widgetLoader){
     </p>
     <div class="hero-cta">
       <a href="/projects.html" class="btn btn-p">View Projects</a>
-      <button class="btn btn-v" onclick="openCal()">📅 Book a Demo</button>
+      <button class="btn btn-v" onclick="openCalPopup()">📅 Book a Demo</button>
       <a href="/services.html" class="btn btn-o">Services</a>
     </div>
     <div class="hero-stats"><div><div class="stat-n">7+<span>.</span></div><div class="stat-l">Cloud Certs</div></div><div><div class="stat-n">2<span>.</span></div><div class="stat-l">Cloud Platforms</div></div><div><div class="stat-n">10+<span>.</span></div><div class="stat-l">Core Tools</div></div><div><div class="stat-n">∞<span>.</span></div><div class="stat-l">Automation</div></div></div>
@@ -492,7 +511,7 @@ if(calendlyWidget && widgetLoader){
       <div style="margin-top:1.4rem;display:flex;gap:.7rem;flex-wrap:wrap">
         <a href="/contact.html" class="btn btn-p">Get in Touch</a>
         <a href="https://1drv.ms/f/c/768093078700af7a/IgDCyz3vFgDEQ72Q0ExLIeLWAbIhc1mkgmFdLsg6cDKBXhw?e=4TjZaS" class="btn btn-o" target="_blank" rel="noopener">Resume ↗</a>
-        <button class="btn btn-v" onclick="openCal()">📅 Book a Call</button>
+        <button class="btn btn-v" onclick="openCalPopup()">📅 Book a Call</button>
       </div>
     </div>
     <div class="skill-bars"><div class="skill-row"><div class="skill-top"><span>Cloud (AWS & Azure)</span><span>95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div><div class="skill-row"><div class="skill-top"><span>Kubernetes & EKS/AKS</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div><div class="skill-row"><div class="skill-top"><span>Terraform / IaC</span><span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div><div class="skill-row"><div class="skill-top"><span>CI/CD & GitOps</span><span>88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div><div class="skill-row"><div class="skill-top"><span>DevSecOps</span><span>82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div><div class="skill-row"><div class="skill-top"><span>AI Infra / MLOps</span><span>75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div></div>
