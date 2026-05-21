@@ -7,6 +7,7 @@
   <meta name="description" content="AWS & Azure Platform Engineer, DevOps, Cloud Infrastructure Specialist"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
   
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Fira+Code:wght@300;400;500&display=swap');
@@ -59,6 +60,8 @@
   .nav-links{display:flex;gap:0;list-style:none;margin-left:auto}
   .nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;padding:.32rem .78rem;border-radius:6px;transition:all .16s;letter-spacing:.01em}
   .nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(0,229,255,.08)}
+  .nav-book{display:inline-flex;align-items:center;gap:.35rem;padding:.35rem 1rem;font-family:var(--head);font-size:.78rem;font-weight:700;background:var(--accent);color:#02101b;border:none;border-radius:7px;cursor:pointer;box-shadow:0 2px 8px rgba(0,229,255,.28);transition:all .16s;white-space:nowrap;margin-left:1rem}
+  .nav-book:hover{background:var(--accent-h);transform:translateY(-1px)}
 
   /* ── Layout ── */
   main {
@@ -375,6 +378,7 @@
 <li><a href="services.html" >Services</a></li>
 <li><a href="contact.html" class="active">Contact</a></li>
 </ul>
+  <button class="nav-book" onclick="openCalPopup()">📅 Book a Demo</button>
 </nav>
 
   <main>
@@ -414,6 +418,20 @@
     <a href="https://www.linkedin.com/in/gyan-prakash-rai-24782413/" style="color:var(--muted);text-decoration:none;">LinkedIn</a>
   </span>
 </footer>
-
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script>
+function openCalPopup(){
+  const url='https://calendly.com/gprai';
+  try{
+    if(window.Calendly && typeof Calendly.showPopupWidget==='function'){
+      Calendly.showPopupWidget(url);return;
+    }
+    if(window.Calendly && typeof Calendly.initPopupWidget==='function'){
+      Calendly.initPopupWidget({url});return;
+    }
+  }catch(e){console.warn('Calendly popup failed',e)}
+  window.open(url,'_blank');
+}
+</script>
 </body>
 </html>
