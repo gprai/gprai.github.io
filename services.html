@@ -9,65 +9,43 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=DM+Mono:wght@300;400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Fira+Code:wght@300;400;500&display=swap');
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:        #0f2433; /* lighter than before */
-    --surface:   #122933;
-    --border:    #23424f;
-    --aws:       #FF9900;
-    --azure:     #3a9bff;
-    --accent:    #2dd4f5; /* softer cyan */
-    --text:      #e6f2f8;
-    --muted:     #98b9c6;
-    --font-head: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    --font-mono: 'DM Mono', monospace;
+    --bg:#eef2f8;
+    --surface:#ffffff;
+    --surface2:#f4f7fc;
+    --border:#dde3ef;
+    --border2:#c8d0e4;
+    --aws:#d97706;
+    --azure:#0064b5;
+    --accent:#1d4ed8;
+    --accent-h:#1e40af;
+    --violet:#6d28d9;
+    --green:#15803d;
+    --text:#0a1628;
+    --sub:#374151;
+    --muted:#64748b;
+    --light:#94a3b8;
+    --head:'Bricolage Grotesque',sans-serif;
+    --mono:'Fira Code',monospace;
+    --r:10px;
+    --sh:0 2px 10px rgba(29,78,216,.07),0 1px 3px rgba(10,22,40,.06);
+    --sh2:0 8px 28px rgba(29,78,216,.12),0 2px 8px rgba(10,22,40,.08);
   }
 
-  html { scroll-behavior: smooth; }
+  html{scroll-behavior:smooth}
 
-  body {
-    background: linear-gradient(180deg,var(--bg), #0b2028 120%);
-    color: var(--text);
-    font-family: var(--font-head);
-    font-size: 15px;
-    line-height: 1.7;
-    overflow-x: hidden;
-    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  }
+  body{background:var(--bg);color:var(--text);font-family:var(--head);font-size:14.5px;line-height:1.65;overflow-x:hidden}
 
-  /* ── Noise overlay ── */
-  body::before {
-    content: '';
-    position: fixed; inset: 0; z-index: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    pointer-events: none;
-  }
+  /* ── Background ── */
+  body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none}
+  body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:44px 44px;opacity:.28}
 
-  /* ── Grid lines ── */
-  body::after {
-    content: '';
-    position: fixed; inset: 0; z-index: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    opacity: 0.35;
-    pointer-events: none;
-  }
-
-  /* ── Nav ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 clamp(1rem, 5vw, 4rem);
-    height: 56px;
-    background: rgba(9,9,15,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
+  /* ── NAV ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0 clamp(1rem,4vw,3.5rem);height:54px;background:rgba(238,242,248,.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--border2);box-shadow:var(--sh)}
 
   .nav-logo {
     font-family: var(--font-head);
@@ -78,16 +56,9 @@
     letter-spacing: -0.02em;
   }
 
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color .2s;
-  }
-  .nav-links a:hover { color: var(--accent); }
+  .nav-links{display:flex;gap:0;list-style:none}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;padding:.32rem .78rem;border-radius:6px;transition:all .16s;letter-spacing:.01em}
+  .nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(29,78,216,.08)}
 
   /* ── Layout ── */
   main {
@@ -223,12 +194,8 @@
     border: 1px solid var(--border);
   }
 
-  .stack-card {
-    background: linear-gradient(180deg,var(--surface), #0f2a36);
-    padding: 1.8rem;
-    transition: background .2s;
-  }
-  .stack-card:hover { background: #16162a; }
+  .stack-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.8rem;box-shadow:var(--sh);transition:all .18s}
+  .stack-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
 
   .stack-card h3 {
     font-size: .85rem;
@@ -326,12 +293,8 @@
     border: 1px solid var(--border);
   }
 
-  .service-card {
-    background: linear-gradient(180deg,var(--surface), #0f2a36);
-    padding: 2rem;
-    transition: background .2s;
-  }
-  .service-card:hover { background: #16162a; }
+  .service-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:2rem;box-shadow:var(--sh);transition:all .18s}
+  .service-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
 
   .service-icon { font-size: 1.4rem; margin-bottom: 1rem; }
   .service-card h3 {
@@ -363,15 +326,8 @@
     margin-bottom: 3rem;
   }
 
-  .contact-card {
-    background: linear-gradient(180deg,var(--surface), #0f2a36);
-    padding: 2rem;
-    text-decoration: none;
-    color: inherit;
-    transition: background .2s;
-    display: block;
-  }
-  .contact-card:hover { background: #16162a; }
+  .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:2rem;text-decoration:none;color:inherit;box-shadow:var(--sh);transition:all .18s;display:block}
+  .contact-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
   .contact-card .contact-type {
     font-size: .62rem; letter-spacing: .18em;
     text-transform: uppercase; color: var(--accent);
@@ -380,14 +336,7 @@
   .contact-card .contact-value { font-size: .88rem; color: var(--text); }
 
   /* ── Footer ── */
-  footer {
-    position: relative; z-index: 1;
-    border-top: 1px solid var(--border);
-    padding: 2rem clamp(1rem, 8vw, 8rem);
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 1rem;
-    font-size: .72rem; color: var(--muted);
-  }
+  footer{background:var(--surface);border-top:1px solid var(--border2);padding:1.5rem clamp(1rem,5vw,3.5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.75rem;font-size:.76rem;color:var(--muted);margin-top:3rem}
 
   /* ── Page heading ── */
   .page-hero {
@@ -423,7 +372,7 @@
   <ul class="nav-links"><li><a href="index.html" >Home</a></li>
 <li><a href="stack.html" >Stack</a></li>
 <li><a href="projects.html" >Projects</a></li>
-<li><a href="services.html" style="color:var(--accent)">Services</a></li>
+<li><a href="services.html" class="active">Services</a></li>
 <li><a href="contact.html" >Contact</a></li>
 </ul>
 </nav>
