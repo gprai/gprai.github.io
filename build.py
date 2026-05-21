@@ -824,7 +824,7 @@ def nav(active="") -> str:
     return f"""<nav>
   <a class="nav-logo" href="/index.html">GPR<span>.</span></a>
   <ul class="nav-links">{items}</ul>
-  <button class="nav-book" onclick="openCal()">📅 Book a Call</button>
+  <button class="nav-book" onclick="openCal()">📅 Book a Demo</button>
 </nav>"""
 
 def foot() -> str:
@@ -1026,7 +1026,7 @@ t();
       <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
         <a href="/contact.html" class="btn btn-p">Get in Touch</a>
         <a href="{SITE['resume']}" class="btn btn-o" target="_blank">Resume ↗</a>
-        <button class="btn btn-v" onclick="openCal()">📅 Book a Call</button>
+        <button class="btn btn-v" onclick="openCal()">📅 Book a Demo</button>
       </div>
     </div>
     <div class="skill-bars">{bars_html}</div>
