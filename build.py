@@ -104,7 +104,7 @@ PROJECTS = [
         "title":"AWS Platform Engineering — Multi-Account Landing Zone",
         "short":"Enterprise AWS multi-account landing zone with Control Tower, Organizations, Terraform & GitOps — automated governance at scale.",
         "summary":"Enterprise-grade AWS platform implementing a secure multi-account landing zone using AWS Control Tower and AWS Organizations. Terraform modules handle account vending, baseline networking, IAM, and security controls. GitHub Actions + GitOps drive all changes; centralised CloudTrail, AWS Config, Security Hub, and GuardDuty run across every account.",
-        "repo":"https://github.com/gprai/aws-platform-engineering",
+        "repo":"https://github.com/gprai/vayunetrix-platform-docs",
         "stack":["AWS Control Tower","AWS Organizations","Terraform","GitHub Actions","IAM Identity Center","SCPs","Security Hub","GuardDuty"],
         "highlights":[
             "Multi-account structure: Management / Log Archive / Audit / Workload accounts",
